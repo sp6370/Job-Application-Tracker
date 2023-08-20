@@ -1,0 +1,25 @@
+{
+  "name": "job-application-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.11",
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "figlet": "^1.6.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.197",
+    "@types/node": "^20.5.1",
+    "typescript": "^5.1.6"
+  }
+}
