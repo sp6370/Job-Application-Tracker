@@ -2,10 +2,13 @@
   "name": "job-application-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin" : {
+    "jat": "./dist/index.js"
   },
   "keywords": [],
   "author": "",
