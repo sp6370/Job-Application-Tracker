@@ -1,4 +1,5 @@
 import { Builder, By, until } from "selenium-webdriver";
+import { convert } from "html-to-text";
 
 export interface JobPosting {
   title: string;
@@ -22,9 +23,11 @@ export async function scrapeJobDetails(
       .findElement(By.className("top-card-layout__title"))
       .getText();
 
-    let jobDescription = await driver
-      .findElement(By.css("div.description__text--rich"))
-      .getText();
+    let jobDescription = convert(
+      await driver
+        .findElement(By.css("div.description__text--rich"))
+        .getAttribute("innerHTML")
+    );
 
     let jobCompany = await driver
       .findElement(By.css("a.topcard__org-name-link"))
