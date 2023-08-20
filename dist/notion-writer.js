@@ -14,12 +14,15 @@ const client_1 = require("@notionhq/client");
 const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
 const notion = new client_1.Client({ auth: process.env["NOTION_TOKEN"] });
-function makePropertiesData(properties, jodData) {
+function removePunctuation(text) {
+    return text.replace(/[^\w\s]|_/g, "");
+}
+function makePropertiesData(properties, jobData) {
     const propertyValues = {};
     let processedDescription = [];
     const maxLength = 2000;
-    for (let i = 0; i < jodData.description.length; i += maxLength) {
-        const part = jodData.description.substr(i, maxLength);
+    for (let i = 0; i < jobData.description.length; i += maxLength) {
+        const part = jobData.description.substr(i, maxLength);
         processedDescription.push({
             type: "text",
             text: { content: part },
@@ -33,7 +36,7 @@ function makePropertiesData(properties, jodData) {
                     {
                         type: "text",
                         text: {
-                            content: jodData.company,
+                            content: jobData.company,
                         },
                     },
                 ],
@@ -51,7 +54,7 @@ function makePropertiesData(properties, jodData) {
             propertyValues[name] = {
                 type: "url",
                 id: property.id,
-                url: jodData.url,
+                url: jobData.url,
             };
         }
         else if (name === "Description") {
@@ -65,7 +68,7 @@ function makePropertiesData(properties, jodData) {
             propertyValues[name] = {
                 type: "select",
                 id: property.id,
-                select: { name: jodData.title },
+                select: { name: removePunctuation(jobData.title) },
             };
         }
     });
