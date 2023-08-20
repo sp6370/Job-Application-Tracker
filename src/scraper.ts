@@ -39,13 +39,6 @@ export async function scrapeJobDetails(
       url: postingUrl,
     };
 
-    console.log(`
-      Title: ${jobTitle} 
-      Description: ${jobDescription}
-      Company: ${jobCompany}
-      URL: ${postingUrl}
-    `);
-
     return jobPosting;
   } catch (error) {
     console.error("An error occurred:", error);
