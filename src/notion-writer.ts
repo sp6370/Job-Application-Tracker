@@ -17,11 +17,19 @@ function makePropertiesData(
   jodData: JobPosting
 ): Record<string, CreatePageParameters["properties"]> {
   const propertyValues: Record<string, CreatePageParameters["properties"]> = {};
-  console.log(jodData.description);
 
-  if (jodData.description.length > 2000) {
-    // discard remaing characters
-    jodData.description = jodData.description.substring(0, 2000);
+  type TextObject = {
+    type: "text";
+    text: { content: string };
+  };
+  let processedDescription: TextObject[] = [];
+  const maxLength = 2000;
+  for (let i = 0; i < jodData.description.length; i += maxLength) {
+    const part = jodData.description.substr(i, maxLength);
+    processedDescription.push({
+      type: "text",
+      text: { content: part },
+    });
   }
 
   Object.entries(properties).forEach(([name, property]) => {
@@ -54,12 +62,7 @@ function makePropertiesData(
       propertyValues[name] = {
         type: "rich_text",
         id: property.id,
-        rich_text: [
-          {
-            type: "text",
-            text: { content: jodData.description },
-          },
-        ],
+        rich_text: processedDescription,
       };
     } else if (name === "Role") {
       propertyValues[name] = {
