@@ -1,6 +1,6 @@
 import { Builder, By, until } from "selenium-webdriver";
 
-interface JobPosting {
+export interface JobPosting {
   title: string;
   description: string;
   company: string;
