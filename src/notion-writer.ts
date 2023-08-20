@@ -12,9 +12,13 @@ config();
 
 const notion = new Client({ auth: process.env["NOTION_TOKEN"] });
 
+function removePunctuation(text: string): string {
+  return text.replace(/[^\w\s]|_/g, "");
+}
+
 function makePropertiesData(
   properties: GetDatabaseResponse["properties"],
-  jodData: JobPosting
+  jobData: JobPosting
 ): Record<string, CreatePageParameters["properties"]> {
   const propertyValues: Record<string, CreatePageParameters["properties"]> = {};
 
@@ -24,8 +28,8 @@ function makePropertiesData(
   };
   let processedDescription: TextObject[] = [];
   const maxLength = 2000;
-  for (let i = 0; i < jodData.description.length; i += maxLength) {
-    const part = jodData.description.substr(i, maxLength);
+  for (let i = 0; i < jobData.description.length; i += maxLength) {
+    const part = jobData.description.substr(i, maxLength);
     processedDescription.push({
       type: "text",
       text: { content: part },
@@ -40,7 +44,7 @@ function makePropertiesData(
           {
             type: "text",
             text: {
-              content: jodData.company,
+              content: jobData.company,
             },
           },
         ],
@@ -56,7 +60,7 @@ function makePropertiesData(
       propertyValues[name] = {
         type: "url",
         id: property.id,
-        url: jodData.url,
+        url: jobData.url,
       };
     } else if (name === "Description") {
       propertyValues[name] = {
@@ -68,7 +72,7 @@ function makePropertiesData(
       propertyValues[name] = {
         type: "select",
         id: property.id,
-        select: { name: jodData.title },
+        select: { name: removePunctuation(jobData.title) },
       };
     }
   });
