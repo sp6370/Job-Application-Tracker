@@ -15,10 +15,11 @@
     "commander": "^11.0.0",
     "dotenv": "^16.3.1",
     "figlet": "^1.6.0",
-    "lodash": "^4.17.21",
+    "html-to-text": "^9.0.5",
     "selenium-webdriver": "^4.11.1"
   },
   "devDependencies": {
+    "@types/html-to-text": "^9.0.1",
     "@types/lodash": "^4.14.197",
     "@types/node": "^20.5.1",
     "@types/selenium-webdriver": "^4.1.15",
