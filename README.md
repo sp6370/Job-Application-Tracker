@@ -23,7 +23,7 @@ Setting up J.A.T on your local machine might require a bit of initial effort, bu
 
 2. **Retrieve Database ID:** Find the database ID for your duplicated template by following this guide: [Retrieve a Database](https://developers.notion.com/reference/retrieve-a-database).
 
-3. **Create Notion Integration:** Create a Notion integration and grant it access to the aforementioned database. Make sure to keep the API token readily available. [Integration settings page](https://www.notion.so/my-integrations).Follow this guide: [Create a Notion Integration](https://developers.notion.com/docs/create-a-notion-integration#give-your-integration-page-permissions).
+3. **Create Notion Integration:** Create a Notion integration and grant it access to the aforementioned database. Make sure to keep the API token readily available. [Integration settings page](https://www.notion.so/my-integrations). Follow this guide: [Create a Notion Integration](https://developers.notion.com/docs/create-a-notion-integration#give-your-integration-page-permissions).
 
 4. **Clone the Repository:** Clone the J.A.T repository.
 
