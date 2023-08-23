@@ -25,7 +25,7 @@ Setting up J.A.T on your local machine might require a bit of initial effort, bu
 
 3. **Create Notion Integration:** Create a Notion integration and grant it access to the aforementioned database. Make sure to keep the API token readily available. Follow this guide: [Create a Notion Integration](https://developers.notion.com/docs/create-a-notion-integration#give-your-integration-page-permissions).
 
-4. **Clone the Repository:** Clone the J.A.T repository and create a `.env` file.
+4. **Clone the Repository:** Clone the J.A.T repository.
 
 5. **Configure .env File:** Add your Notion API token and the database ID to the `.env` file.
 
