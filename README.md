@@ -4,6 +4,7 @@ Simplify Your Job Application Tracking with J.A.T
 
 ![Demo](https://github.com/sp6370/Job-Application-Tracker/assets/26037101/92e25771-b1b8-46c0-95bb-eb5a8f0d2ba5)
 
+https://github.com/sp6370/Job-Application-Tracker/assets/26037101/a105f5cb-53c2-4a76-bbd4-d4bac05929dd
 
 J.A.T (Job Application Tracker) is a streamlined solution that utilizes the Notion API to efficiently manage your job application process.
 
