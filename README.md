@@ -30,7 +30,7 @@ Setting up J.A.T on your local machine might require a bit of initial effort, bu
 
 5. **Configure .env File:** Add your Notion API token and the database ID to the `.env` file.
 
-6. **Command Accessibility:** Install dependencies and make command accessible by running `npm install .`.
+6. **Command Accessibility:** Install dependencies and make command accessible by running `npm install -g .`.
 
 7. **You're Ready to Go:** With the setup complete, you can now add your first job posting by using the command from inside the cloned repo: `jat -u "linkedin_job_posting_url"`.
 
